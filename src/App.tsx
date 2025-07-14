@@ -1,7 +1,14 @@
+import Header from "./components/Header";
+import Search from "./components/Search";
+import { ThemeProvider } from "./contexts/ThemeContext";
+
 function App() {
   return (
     <>
-      <p>Dictionary app</p>
+      <ThemeProvider>
+        <Header />
+        <Search />
+      </ThemeProvider>
     </>
   );
 }
