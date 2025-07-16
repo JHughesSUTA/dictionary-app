@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Search from "./components/Search";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Result from "./components/Result";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <ThemeProvider>
         <Header />
         <Search />
+        <Result />
       </ThemeProvider>
     </>
   );
