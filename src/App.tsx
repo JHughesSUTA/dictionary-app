@@ -13,13 +13,15 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <Header />
-        <Search
-          setResult={setResult}
-          setMeanings={setMeanings}
-          setLoading={setLoading}
-        />
-        <Main result={result} loading={loading} meanings={meanings} />
+        <div className="container mx-auto max-w-[327px] md:max-w-[689px] lg:max-w-[737px]">
+          <Header />
+          <Search
+            setResult={setResult}
+            setMeanings={setMeanings}
+            setLoading={setLoading}
+          />
+          <Main result={result} loading={loading} meanings={meanings} />
+        </div>
       </ThemeProvider>
     </>
   );

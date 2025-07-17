@@ -14,11 +14,13 @@ const Main = ({ result, loading, meanings }: MainProps) => {
     <p>loading</p>
   ) : result ? (
     <>
-      <div>
-        <h1>{result.word}</h1>
-        <p className="text-purple-950">
-          {result.phonetic ? result.phonetic : "oops"}
-        </p>
+      <div className="flex justify-between items-center mt-6">
+        <div>
+          <h1 className="text-[32px] font-bold capitalize">{result.word}</h1>
+          <p className="text-body-m text-purple">
+            {result.phonetic ? result.phonetic : "oops"}
+          </p>
+        </div>
         <PlayIcon />
       </div>
       <div>
@@ -26,7 +28,7 @@ const Main = ({ result, loading, meanings }: MainProps) => {
           <MeaningSection key={index} meaning={meaning} />
         ))}
       </div>
-      <hr />
+      <hr className="mt-8 mb-6" />
       <Footer word={result.word} />
     </>
   ) : (
