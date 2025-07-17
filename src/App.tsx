@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <div className="container mx-auto max-w-[327px] md:max-w-[689px] lg:max-w-[737px]">
+        <div className="container pt-6 pb-[85px] mx-auto max-w-[327px] md:max-w-[689px] lg:max-w-[737px]">
           <Header />
           <Search
             setResult={setResult}

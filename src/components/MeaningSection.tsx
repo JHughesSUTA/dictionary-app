@@ -8,11 +8,11 @@ type MeaningSectionProps = {
 const MeaningSection = ({ meaning }: MeaningSectionProps) => {
   return (
     <div className="mt-[32px]">
-      <div className="">
-        <h2 className="font-bold text-[18px] inline-block italic">
+      <div className="flex items-center">
+        <h2 className="font-bold text-[18px] mr-[20px] inline-block italic">
           {meaning.partOfSpeech}
         </h2>
-        <hr inline-block width-100></hr>
+        <hr className="inline-block grow border-gray-200"></hr>
       </div>
       <p className="text-gray-500 text-[16px] mt-[32px]">Meaning</p>
       {/* <ul className="list-dist list-inside marker:text-purple">
