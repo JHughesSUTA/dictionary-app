@@ -6,6 +6,7 @@ import Main from "./components/Main";
 import type { DictionaryResult, Meaning } from "./types";
 import type { Font } from "./types";
 
+
 function App() {
   const [meanings, setMeanings] = useState<Meaning[]>([]);
   const [result, setResult] = useState<DictionaryResult | null>(null);

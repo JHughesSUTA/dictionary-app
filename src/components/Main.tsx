@@ -2,6 +2,7 @@ import PlayIcon from "./icons/PlayIcon";
 import MeaningSection from "./MeaningSection";
 import type { Meaning, DictionaryResult } from "../types";
 import Footer from "./Footer";
+import NoDefinitions from "./NoDefinitions";
 
 type MainProps = {
   result: DictionaryResult | null;
@@ -32,9 +33,7 @@ const Main = ({ result, loading, meanings }: MainProps) => {
       <Footer word={result.word} />
     </>
   ) : (
-    <div>
-      <p>No Results Found</p>
-    </div>
+    <NoDefinitions />
   );
 };
 
