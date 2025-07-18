@@ -41,7 +41,7 @@ const Search = ({ setResult, setMeanings, setLoading }: SearchProps) => {
     <div className="mt-4">
       <input
         id="search"
-        className="bg-gray-100 border-gray-100 w-full h-12 rounded-2xl pl-5"
+        className="bg-gray-100 dark:bg-gray-800 border-gray-100 w-full h-12 rounded-2xl pl-5"
         type="text"
         value={searchTerm}
         onChange={handleInputChange}

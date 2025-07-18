@@ -12,9 +12,10 @@ const MeaningSection = ({ meaning }: MeaningSectionProps) => {
         <h2 className="font-bold text-[18px] mr-[20px] inline-block italic">
           {meaning.partOfSpeech}
         </h2>
-        <hr className="inline-block grow border-gray-200"></hr>
+        <hr className="inline-block grow border-gray-200 dark:border-gray-600"></hr>
       </div>
       <p className="text-gray-500 text-[16px] mt-[32px]">Meaning</p>
+
       {/* <ul className="list-dist list-inside marker:text-purple">
         {meaning.definitions.map((definition, definitionIndex) => (
           <React.Fragment key={definitionIndex}>
