@@ -38,16 +38,16 @@ const MeaningSection = ({ meaning }: MeaningSectionProps) => {
       </ul>
 
       {meaning.synonyms && (
-        <>
+        <div>
           <p className="text-gray-500 text-[16px] inline-block mr-4">
             Synonyms
           </p>
           {meaning.synonyms.map((synonym, synonymIndex) => (
             <span key={synonymIndex} className="text-purple font-bold">
-              {synonym}
+              {synonym},&nbsp;
             </span>
           ))}
-        </>
+        </div>
       )}
     </div>
   );

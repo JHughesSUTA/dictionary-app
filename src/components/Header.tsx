@@ -1,13 +1,14 @@
-import { useState } from "react";
 import type { ChangeEvent } from "react";
 import BookIcon from "./icons/BookIcon";
 import MoonIcon from "./icons/MoonIcon";
 import { useTheme } from "../contexts/ThemeContext";
+import type { Font } from "../types";
 
-const Header = () => {
-  type Font = "sans" | "serif" | "mono";
-  const [font, setFont] = useState<Font>("sans");
+type HeaderProps = {
+  setFont: (font: Font) => void;
+};
 
+const Header = ({ setFont }: HeaderProps) => {
   const { toggleTheme } = useTheme();
 
   const handleFontSelection = (e: ChangeEvent<HTMLSelectElement>) => {

@@ -14,3 +14,5 @@ export type DictionaryResult = {
   phonetic?: string;
   meanings: Meaning[];
 };
+
+export type Font = "sans" | "serif" | "mono";
