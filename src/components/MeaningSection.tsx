@@ -45,7 +45,8 @@ const MeaningSection = ({ meaning }: MeaningSectionProps) => {
           </p>
           {meaning.synonyms.map((synonym, synonymIndex) => (
             <span key={synonymIndex} className="text-purple font-bold">
-              {synonym},&nbsp;
+              {synonym}
+              {synonymIndex < meaning.synonyms!.length - 1 && ", "}
             </span>
           ))}
         </div>

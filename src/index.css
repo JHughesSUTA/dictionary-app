@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *)); 
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-gray-900: #050505;
@@ -34,7 +34,6 @@
   --font-mono: "Inconsolata", ui-monospace, SFMono-Regular, monospace;
 }
 
-
 * {
   box-sizing: border-box;
 }
@@ -50,3 +49,13 @@ body {
   background-color: #000;
   color: #fff;
 }
+
+@layer utilities {
+  .fill-purple {
+    fill: rgb(var(--color-purple));
+  }
+  .group-hover\:fill-purple {
+    fill: rgb(var(--color-purple));
+  }
+}
+

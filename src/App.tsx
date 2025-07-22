@@ -19,7 +19,7 @@ function App() {
         <div
           className={`container pt-6 pb-[85px] mx-auto max-w-[327px] md:max-w-[689px] lg:max-w-[737px] font-${font}` }
         >
-          <Header setFont={setFont} />
+          <Header font={font} setFont={setFont} />
           <Search
             setResult={setResult}
             setMeanings={setMeanings}
