@@ -3,7 +3,8 @@ import MoonIcon from "./icons/MoonIcon";
 import { useTheme } from "../contexts/ThemeContext";
 import type { Font } from "../types";
 import carat from "../assets/images/carat.svg";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import FontSelectMenu from "./FontSelectMenu";
 
 type HeaderProps = {
   font: Font;
@@ -13,50 +14,6 @@ type HeaderProps = {
 const Header = ({ font, setFont }: HeaderProps) => {
   const { toggleTheme, theme } = useTheme();
   const [showFontSelect, setShowFontSelect] = useState<boolean>(false);
-
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setShowFontSelect(false);
-      }
-    };
-
-    if (showFontSelect) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showFontSelect]);
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (!showFontSelect) return;
-
-      if (event.key === "Escape") {
-        setShowFontSelect(false);
-      }
-    };
-
-    if (showFontSelect) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [showFontSelect]);
-
-  const fontSelectClass: string =
-    theme === "light"
-      ? "absolute bg-white w-[183px] h-[152px] p-6 rounded-2xl right-0 bottom-[-162px] shadow-[0_5px_30px_0_rgba(0,0,0,0.1)]"
-      : "absolute bg-black w-[183px] h-[152px] p-6 rounded-2xl right-0 bottom-[-162px] shadow-[0_5px_30px_0_rgba(164,69,237,1)]";
 
   return (
     <header>
@@ -76,42 +33,12 @@ const Header = ({ font, setFont }: HeaderProps) => {
               {font} <img src={carat} alt="" aria-hidden />
             </button>
 
-            <div
-              ref={dropdownRef}
-              className={`${fontSelectClass} ${!showFontSelect && "hidden"}`}
-              role="listbox"
-              aria-label="Font family options"
-            >
-              <ul className="flex flex-col justify-between h-full">
-                <li className="hover:text-purple font-bold" role="option">
-                  <button
-                    className="cursor-pointer w-full text-left font-sans"
-                    onClick={() => setFont("sans")}
-                    aria-select={font === "sans"}
-                  >
-                    Sans Serif
-                  </button>
-                </li>
-                <li className="hover:text-purple font-bold" role="option">
-                  <button
-                    className="cursor-pointer w-full text-left font-serif"
-                    onClick={() => setFont("serif")}
-                    aria-select={font === "serif"}
-                  >
-                    Serif
-                  </button>
-                </li>
-                <li className="hover:text-purple font-bold" role="option">
-                  <button
-                    className="cursor-pointer w-full text-left font-mono"
-                    onClick={() => setFont("mono")}
-                    aria-select={font === "mono"}
-                  >
-                    mono
-                  </button>
-                </li>
-              </ul>
-            </div>
+            <FontSelectMenu
+              font={font}
+              setFont={setFont}
+              showFontSelect={showFontSelect}
+              setShowFontSelect={setShowFontSelect}
+            />
           </div>
 
           <div className="flex relative after:content-[''] after:absolute after:left-0 after:w-px after:bg-gray-200 after:h-full">
