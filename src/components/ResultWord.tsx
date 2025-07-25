@@ -26,7 +26,7 @@ const ResultWord = ({ result }: ResultWordProps) => {
       <div>
         <h1 className="text-[32px] font-bold capitalize">{result.word}</h1>
         <p className="text-body-m text-purple">
-          {result.phonetic ? result.phonetic : "oops"}
+          {result.phonetic ? result.phonetic : "Pronunciation unavailable"}
         </p>
         {/* <p>{result.phonetics[0].audio}</p> */}
       </div>

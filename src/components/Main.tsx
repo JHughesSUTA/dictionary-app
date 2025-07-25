@@ -3,6 +3,7 @@ import type { Meaning, DictionaryResult } from "../types";
 import Footer from "./Footer";
 import NoDefinitions from "./NoDefinitions";
 import ResultWord from "./ResultWord";
+import Spinner from "./Spinner";
 
 type MainProps = {
   result: DictionaryResult | null;
@@ -12,7 +13,7 @@ type MainProps = {
 
 const Main = ({ result, loading, meanings }: MainProps) => {
   return loading ? (
-    <p>loading</p>
+    <Spinner loading={loading} />
   ) : result ? (
     <>
       <ResultWord result={result} />

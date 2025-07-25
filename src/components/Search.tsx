@@ -11,7 +11,8 @@ type SearchProps = {
 const Search = ({ setResult, setMeanings, setLoading }: SearchProps) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const fetchTermTest = async (word: string) => {
+  const fetchTerm = async (word: string) => {
+    setLoading(true);
     try {
       const res = await fetch(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
@@ -32,7 +33,7 @@ const Search = ({ setResult, setMeanings, setLoading }: SearchProps) => {
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      fetchTermTest(searchTerm);
+      fetchTerm(searchTerm);
       setSearchTerm("");
     }
   };
@@ -43,7 +44,7 @@ const Search = ({ setResult, setMeanings, setLoading }: SearchProps) => {
         id="search"
         className="bg-gray-100 dark:bg-gray-800 border-gray-100 w-full h-12 rounded-2xl pl-5"
         type="text"
-        placeholder="Search for any word ..."
+        placeholder="Search for any word..."
         value={searchTerm}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}

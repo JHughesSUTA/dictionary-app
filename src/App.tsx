@@ -10,7 +10,7 @@ import type { Font } from "./types";
 function App() {
   const [meanings, setMeanings] = useState<Meaning[]>([]);
   const [result, setResult] = useState<DictionaryResult | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [font, setFont] = useState<Font>("sans");
 
   return (
