@@ -39,10 +39,10 @@ const Search = ({ setResult, setMeanings, setLoading }: SearchProps) => {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-6 md:mt-[50px]">
       <input
         id="search"
-        className="bg-gray-100 dark:bg-gray-800 border-gray-100 w-full h-12 rounded-2xl pl-5"
+        className="font-bold bg-gray-100 dark:bg-gray-800 border-gray-100 w-full h-12 rounded-2xl pl-5 md:h-16 md:text-heading-s"
         type="text"
         placeholder="Search for any word..."
         value={searchTerm}

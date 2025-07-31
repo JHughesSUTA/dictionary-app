@@ -18,19 +18,19 @@ const Header = ({ font, setFont }: HeaderProps) => {
   return (
     <header>
       <div className="flex justify-between">
-        <div>
+        <div className="max-w-[28px] md:max-w-[32px] ">
           <BookIcon />
         </div>
         <div className="flex items-center">
           <div className="relative">
             <button
               onClick={() => setShowFontSelect((prev) => !prev)}
-              className="flex capitalize font-bold cursor-pointer w-[98px] justify-between"
+              className="flex capitalize font-bold cursor-pointer justify-between mr-4 md:mr-6.5 text-body-s md:text-body-m"
               aria-expanded={showFontSelect}
               aria-haspopup="listbox"
               aria-label="Select font family"
             >
-              {font} <img src={carat} alt="" aria-hidden />
+              {font} <img className="ml-4" src={carat} alt="" aria-hidden />
             </button>
 
             <FontSelectMenu
@@ -44,7 +44,7 @@ const Header = ({ font, setFont }: HeaderProps) => {
           <div className="flex relative after:content-[''] after:absolute after:left-0 after:w-px after:bg-gray-200 after:h-full">
             <label
               htmlFor="toggle"
-              className="relative cursor-pointer ml-[16px] mr-[12px]"
+              className="relative cursor-pointer mr-3 md:mr-5 ml-4 md:ml-6.5"
             >
               <input
                 id="toggle"

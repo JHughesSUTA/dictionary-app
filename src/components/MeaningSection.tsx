@@ -7,44 +7,42 @@ type MeaningSectionProps = {
 
 const MeaningSection = ({ meaning }: MeaningSectionProps) => {
   return (
-    <div className="mt-[32px]">
+    <div className="mt-8 md:mt-10">
       <div className="flex items-center">
-        <h2 className="font-bold text-[18px] mr-[20px] inline-block italic">
+        <h2 className="font-bold text-[18px] mr-[20px] inline-block italic md:text-heading-m">
           {meaning.partOfSpeech}
         </h2>
         <hr className="inline-block grow border-gray-200 dark:border-gray-600"></hr>
       </div>
-      <p className="text-gray-500 text-[16px] mt-[32px]">Meaning</p>
+      <p className="text-gray-500 text-[16px] mt-[32px] md:text-heading-s md:mt-10">
+        Meaning
+      </p>
 
-      {/* <ul className="list-dist list-inside marker:text-purple">
+      <ul className="list-disc list-inside marker:text-purple mt-4 md:mt-[25px]">
         {meaning.definitions.map((definition, definitionIndex) => (
-          <React.Fragment key={definitionIndex}>
-            <li className="text-[15px]">{definition.definition}</li>
-            <span className="text-gray-500">
-              {definition.example && definition.example}
-            </span>
-          </React.Fragment>
-        ))}
-      </ul> */}
-
-      <ul className="list-disc list-inside marker:text-purple">
-        {meaning.definitions.map((definition, definitionIndex) => (
-          <li key={definitionIndex} className="text-[15px] mb-[13px]">
+          <li
+            key={definitionIndex}
+            className="text-[15px] mb-[13px] md:text-body-m"
+          >
             {definition.definition}
             {definition.example && (
-              <div className="text-gray-500 ml-4 mt-1">{`"${definition.example}"`}</div>
+              <div className="text-gray-500 ml-[1.3rem] mt-1">{`"${definition.example}"`}</div>
             )}
           </li>
         ))}
       </ul>
 
       {meaning.synonyms && (
-        <div>
-          <p className="text-gray-500 text-[16px] inline-block mr-4">
+        <div className="mt-6">
+          {/* TODO only show synonyms if they exist */}
+          <p className="text-gray-500 text-4 inline-block mr-4 md:text-heading-s">
             Synonyms
           </p>
           {meaning.synonyms.map((synonym, synonymIndex) => (
-            <span key={synonymIndex} className="text-purple font-bold">
+            <span
+              key={synonymIndex}
+              className="text-purple font-bold text-4 md:text-heading-s"
+            >
               {synonym}
               {synonymIndex < meaning.synonyms!.length - 1 && ", "}
             </span>

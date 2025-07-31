@@ -6,7 +6,6 @@ import Main from "./components/Main";
 import type { DictionaryResult, Meaning } from "./types";
 import type { Font } from "./types";
 
-
 function App() {
   const [meanings, setMeanings] = useState<Meaning[]>([]);
   const [result, setResult] = useState<DictionaryResult | null>(null);
@@ -17,7 +16,7 @@ function App() {
     <>
       <ThemeProvider>
         <div
-          className={`container pt-6 pb-[85px] mx-auto max-w-[327px] md:max-w-[689px] lg:max-w-[737px] font-${font}` }
+          className={`font-${font} container pt-6 pb-[85px] mx-auto max-w-[327px] md:pt-[58px] md:max-w-[689px] lg:max-w-[737px] `}
         >
           <Header font={font} setFont={setFont} />
           <Search

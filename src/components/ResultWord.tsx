@@ -22,15 +22,16 @@ const ResultWord = ({ result }: ResultWordProps) => {
   };
 
   return (
-    <div className="flex justify-between items-center mt-6">
+    <div className="flex justify-between items-center mt-6 md:mt-12">
       <div>
-        <h1 className="text-[32px] font-bold capitalize">{result.word}</h1>
-        <p className="text-body-m text-purple">
+        <h1 className="text-[32px] font-bold capitalize md:text-heading-l">{result.word}</h1>
+        <p className="text-body-m text-purple mt-2 md:text-heading-m md:mt-[5px]">
           {result.phonetic ? result.phonetic : "Pronunciation unavailable"}
         </p>
+        {/* TODO - only show play button when there is a sound available */}
         {/* <p>{result.phonetics[0].audio}</p> */}
       </div>
-      <button className="cursor-pointer" onClick={playAudio}>
+      <button className="cursor-pointer max-w-12 md:max-w-[75px]" onClick={playAudio}>
         <PlayIcon />
       </button>
     </div>
