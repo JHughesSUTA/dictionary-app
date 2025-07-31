@@ -103,7 +103,7 @@ const FontSelectMenu = ({
   return (
     <div
       ref={dropdownRef}
-      className={`absolute w-[183px] h-[152px] p-6 rounded-2xl right-0 bottom-[-162px] bg-white dark:bg-black shadow-[0_5px_30px_0_rgba(0,0,0,0.1)] dark:shadow-[0_5px_30px_0_rgba(164,69,237,1)] ${
+      className={`absolute z-1 w-[183px] h-[152px] p-6 rounded-2xl right-0 bottom-[-162px] bg-white dark:bg-black shadow-[0_5px_30px_0_rgba(0,0,0,0.1)] dark:shadow-[0_5px_30px_0_rgba(164,69,237,1)] ${
         !showFontSelect && "hidden"
       }`}
       role="listbox"
