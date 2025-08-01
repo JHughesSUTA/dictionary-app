@@ -7,9 +7,15 @@ type SearchProps = {
   setResult: (result: DictionaryResult) => void;
   setMeanings: (meanings: Meaning[]) => void;
   setLoading: (val: boolean) => void;
+  setHasSearched: (val: boolean) => void;
 };
 
-const Search = ({ setResult, setMeanings, setLoading }: SearchProps) => {
+const Search = ({
+  setResult,
+  setMeanings,
+  setLoading,
+  setHasSearched,
+}: SearchProps) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const fetchTerm = async (word: string) => {
@@ -21,6 +27,7 @@ const Search = ({ setResult, setMeanings, setLoading }: SearchProps) => {
       const data = await res.json();
       setResult(data[0]);
       setMeanings(data[0].meanings);
+      setHasSearched(true);
     } catch (error) {
       console.log("error loading data", error);
     } finally {

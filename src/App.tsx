@@ -11,6 +11,7 @@ function App() {
   const [result, setResult] = useState<DictionaryResult | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [font, setFont] = useState<Font>("sans");
+  const [hasSearched, setHasSearched] = useState<boolean>(false);
 
   return (
     <>
@@ -23,8 +24,11 @@ function App() {
             setResult={setResult}
             setMeanings={setMeanings}
             setLoading={setLoading}
+            setHasSearched={setHasSearched}
           />
-          <Main result={result} loading={loading} meanings={meanings} />
+          {hasSearched && (
+            <Main result={result} loading={loading} meanings={meanings} />
+          )}
         </div>
       </ThemeProvider>
     </>
