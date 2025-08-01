@@ -1,18 +1,12 @@
 import BookIcon from "./icons/BookIcon";
 import MoonIcon from "./icons/MoonIcon";
 import { useTheme } from "../contexts/ThemeContext";
-import type { Font } from "../types";
 import carat from "../assets/images/carat.svg";
 import { useState } from "react";
 import FontSelectMenu from "./FontSelectMenu";
 
-type HeaderProps = {
-  font: Font;
-  setFont: (font: Font) => void;
-};
-
-const Header = ({ font, setFont }: HeaderProps) => {
-  const { toggleTheme, theme } = useTheme();
+const Header = () => {
+  const { toggleTheme, theme, font } = useTheme();
   const [showFontSelect, setShowFontSelect] = useState<boolean>(false);
 
   return (
@@ -34,8 +28,6 @@ const Header = ({ font, setFont }: HeaderProps) => {
             </button>
 
             <FontSelectMenu
-              font={font}
-              setFont={setFont}
               showFontSelect={showFontSelect}
               setShowFontSelect={setShowFontSelect}
             />

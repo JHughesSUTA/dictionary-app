@@ -1,21 +1,18 @@
 import { useRef, useState, useEffect } from "react";
-import type { Font } from "../types";
+import { useTheme } from "../contexts/ThemeContext";
 
 type FontSelectMenuProps = {
-  font: Font;
-  setFont: (font: Font) => void;
   showFontSelect: boolean;
   setShowFontSelect: (showFontSelect: boolean) => void;
 };
 
 const FontSelectMenu = ({
-  font,
-  setFont,
   showFontSelect,
   setShowFontSelect,
 }: FontSelectMenuProps) => {
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
-  // const [showFontSelect, setShowFontSelect] = useState<boolean>(false);
+
+  const { font, setFont } = useTheme();
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);

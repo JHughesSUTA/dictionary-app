@@ -1,39 +1,11 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import type { DictionaryResult, Meaning } from "../types";
 import SearchIcon from "./icons/SearchIcon";
+import { useNavigate } from "react-router-dom";
 
-type SearchProps = {
-  setResult: (result: DictionaryResult) => void;
-  setMeanings: (meanings: Meaning[]) => void;
-  setLoading: (val: boolean) => void;
-  setHasSearched: (val: boolean) => void;
-};
-
-const Search = ({
-  setResult,
-  setMeanings,
-  setLoading,
-  setHasSearched,
-}: SearchProps) => {
+const Search = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState<string>("");
-
-  const fetchTerm = async (word: string) => {
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-      );
-      const data = await res.json();
-      setResult(data[0]);
-      setMeanings(data[0].meanings);
-      setHasSearched(true);
-    } catch (error) {
-      console.log("error loading data", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -41,8 +13,10 @@ const Search = ({
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetchTerm(searchTerm);
-    setSearchTerm("");
+    if (searchTerm.trim()) {
+      navigate(`/${searchTerm.toLowerCase()}`);
+      setSearchTerm("");
+    }
   };
 
   return (

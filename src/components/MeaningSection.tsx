@@ -1,4 +1,3 @@
-import React from "react";
 import type { Meaning } from "../types";
 
 type MeaningSectionProps = {
