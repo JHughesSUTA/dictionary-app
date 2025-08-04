@@ -1,4 +1,5 @@
 import type { Meaning } from "../types";
+import { Link } from "react-router-dom";
 
 type MeaningSectionProps = {
   meaning: Meaning;
@@ -38,13 +39,14 @@ const MeaningSection = ({ meaning }: MeaningSectionProps) => {
             Synonyms
           </p>
           {meaning.synonyms.map((synonym, synonymIndex) => (
-            <span
+            <Link
               key={synonymIndex}
+              to={`/${synonym}`}
               className="text-purple font-bold text-4 md:text-heading-s"
             >
-              {synonym}
+              <span className="hover:underline">{synonym}</span>
               {synonymIndex < meaning.synonyms!.length - 1 && ", "}
-            </span>
+            </Link>
           ))}
         </div>
       )}

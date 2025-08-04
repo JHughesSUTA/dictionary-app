@@ -1,15 +1,29 @@
 import PlayIcon from "./icons/PlayIcon";
 import type { DictionaryResult } from "../types";
+import { useState } from "react";
 
 type ResultWordProps = {
   result: DictionaryResult;
 };
 
 const ResultWord = ({ result }: ResultWordProps) => {
-  // TODO - handle audio when first phonetic doesn't have a pronunciation
-  const playAudio = () => {
-    const audioUrl: string | undefined = result.phonetics?.[0].audio;
+  // The American English pronunciation seems to usually be the last phonetic provided, findAudio function will grab the American Pronunciation as often as possible
+  const findAudio = (): string | undefined => {
+    if (!result.phonetics || result.phonetics.length === 0) return undefined;
 
+    for (let i = result.phonetics.length - 1; i >= 0; i--) {
+      const audio = result.phonetics[i]?.audio;
+      if (audio && audio.trim() !== "") {
+        return audio;
+      }
+    }
+
+    return undefined;
+  };
+
+  const audioUrl = findAudio();
+
+  const playAudio = () => {
     if (audioUrl) {
       console.log(audioUrl);
       const audio = new Audio(audioUrl);
@@ -31,15 +45,15 @@ const ResultWord = ({ result }: ResultWordProps) => {
         <p className="text-body-m text-purple mt-2 md:text-heading-m md:mt-[5px]">
           {result.phonetic ? result.phonetic : "Pronunciation unavailable"}
         </p>
-        {/* TODO - only show play button when there is a sound available */}
-        {/* <p>{result.phonetics[0].audio}</p> */}
       </div>
-      <button
-        className="cursor-pointer max-w-12 md:max-w-[75px]"
-        onClick={playAudio}
-      >
-        <PlayIcon />
-      </button>
+      {audioUrl && (
+        <button
+          className="cursor-pointer max-w-12 md:max-w-[75px]"
+          onClick={playAudio}
+        >
+          <PlayIcon />
+        </button>
+      )}
     </div>
   );
 };

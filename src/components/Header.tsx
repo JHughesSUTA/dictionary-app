@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BookIcon from "./icons/BookIcon";
 import MoonIcon from "./icons/MoonIcon";
 import { useTheme } from "../contexts/ThemeContext";
@@ -13,7 +14,9 @@ const Header = () => {
     <header>
       <div className="flex justify-between">
         <div className="max-w-[28px] md:max-w-[32px] ">
-          <BookIcon />
+          <Link to="/" aria-label="Go to home page">
+            <BookIcon aria-hidden="true" />
+          </Link>
         </div>
         <div className="flex items-center">
           <div className="relative">
@@ -48,7 +51,7 @@ const Header = () => {
               <div className="w-11 h-6 bg-gray-300 peer-checked:bg-purple rounded-full transition-all duration-300"></div>
               <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-5 transition-transform duration-300"></div>
             </label>
-            <MoonIcon />
+            <MoonIcon aria-hidden="true" />
           </div>
         </div>
       </div>
