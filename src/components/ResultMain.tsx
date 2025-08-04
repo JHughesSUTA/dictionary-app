@@ -22,7 +22,9 @@ const ResultMain = () => {
   const fetchWord = async (searchWord: string) => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/${searchWord}`);
+      const res = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
+      );
       const data = await res.json();
       setResult(data[0]);
       setMeanings(data[0].meanings);

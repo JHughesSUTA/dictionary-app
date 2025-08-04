@@ -12,6 +12,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
+        <Route index element={<></>} />
         <Route path="/:word" element={<ResultMain />} />
       </Route>
     )

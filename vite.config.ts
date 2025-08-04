@@ -5,14 +5,5 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: {
-    proxy: {
-      "/api": {
-        target: "https://api.dictionaryapi.dev/api/v2/entries/en",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
-  },
-  base: "/dictionary-app/",
+  base: process.env.NODE_ENV === "production" ? "/dictionary-app/" : "/",
 });
