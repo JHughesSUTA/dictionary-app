@@ -34,7 +34,6 @@ const MeaningSection = ({ meaning }: MeaningSectionProps) => {
 
       {meaning.synonyms && (
         <div className="mt-6">
-          {/* TODO only show synonyms if they exist */}
           <p className="text-gray-500 text-4 inline-block mr-4 md:text-heading-s">
             Synonyms
           </p>

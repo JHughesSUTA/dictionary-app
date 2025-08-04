@@ -1,6 +1,5 @@
 import PlayIcon from "./icons/PlayIcon";
 import type { DictionaryResult } from "../types";
-import { useState } from "react";
 
 type ResultWordProps = {
   result: DictionaryResult;

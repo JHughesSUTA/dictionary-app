@@ -39,14 +39,15 @@ const Header = () => {
           <div className="flex relative after:content-[''] after:absolute after:left-0 after:w-px after:bg-gray-200 after:h-full">
             <label
               htmlFor="toggle"
-              className="relative cursor-pointer mr-3 md:mr-5 ml-4 md:ml-6.5"
+              className="relative cursor-pointer mr-3 md:mr-5 ml-4 md:ml-6.5 focus-within:ring-2 focus-within:ring-purple focus-within:ring-offset-2 focus-within:rounded-full"
             >
               <input
                 id="toggle"
                 type="checkbox"
-                className="sr-only peer"
+                className="absolute opacity-0 w-full h-full cursor-pointer peer"
                 checked={theme === "dark"}
                 onChange={toggleTheme}
+                aria-label="Toggle dark mode"
               />
               <div className="w-11 h-6 bg-gray-300 peer-checked:bg-purple rounded-full transition-all duration-300"></div>
               <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-5 transition-transform duration-300"></div>
