@@ -26,6 +26,7 @@ const ResultMain = () => {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
       );
       const data = await res.json();
+      console.log(data[1])
       setResult(data[0]);
       setMeanings(data[0].meanings);
     } catch (error) {

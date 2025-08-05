@@ -15,10 +15,7 @@ function App() {
         <Route index element={<></>} />
         <Route path="/:word" element={<ResultMain />} />
       </Route>
-    ),
-    {
-      basename: import.meta.env.PROD ? "/dictionary-app" : undefined,
-    }
+    )
   );
 
   return (
