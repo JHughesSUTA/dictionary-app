@@ -1,5 +1,6 @@
 import type { Meaning } from "../types";
 import { Link } from "react-router-dom";
+import uniqueId from "lodash.uniqueid";
 
 type MeaningSectionProps = {
   meaning: Meaning;
@@ -19,9 +20,9 @@ const MeaningSection = ({ meaning }: MeaningSectionProps) => {
       </p>
 
       <ul className="list-disc list-inside marker:text-purple mt-4 md:mt-[25px]">
-        {meaning.definitions.map((definition, definitionIndex) => (
+        {meaning.definitions.map((definition) => (
           <li
-            key={definitionIndex}
+            key={uniqueId("definition-")}
             className="text-[15px] mb-[13px] md:text-body-m"
           >
             {definition.definition}
@@ -39,7 +40,7 @@ const MeaningSection = ({ meaning }: MeaningSectionProps) => {
           </p>
           {meaning.synonyms.map((synonym, synonymIndex) => (
             <Link
-              key={synonymIndex}
+              key={uniqueId("synonym-")}
               to={`/${synonym}`}
               className="text-purple font-bold text-4 md:text-heading-s"
             >

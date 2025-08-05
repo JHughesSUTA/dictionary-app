@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import NoDefinitions from "./NoDefinitions";
 import ResultWord from "./ResultWord";
 import Spinner from "./Spinner";
+import uniqueId from "lodash.uniqueid";
 
 const ResultMain = () => {
   const { word } = useParams<{ word: string }>();
@@ -26,7 +27,7 @@ const ResultMain = () => {
         `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`
       );
       const data = await res.json();
-      console.log(data[1])
+      console.log(data[1]);
       setResult(data[0]);
       setMeanings(data[0].meanings);
     } catch (error) {
@@ -42,8 +43,8 @@ const ResultMain = () => {
     <>
       <ResultWord result={result} />
       <div>
-        {meanings.map((meaning, index) => (
-          <MeaningSection key={index} meaning={meaning} />
+        {meanings.map((meaning) => (
+          <MeaningSection key={uniqueId("meaning-")} meaning={meaning} />
         ))}
       </div>
       <hr className="mt-8 mb-6 border-gray-200 dark:border-gray-600 md:mt-10" />

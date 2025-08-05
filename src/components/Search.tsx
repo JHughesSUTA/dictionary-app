@@ -33,7 +33,7 @@ const Search = () => {
       <div className="mt-6 md:mt-[50px] relative" role="search">
         <input
           id="search"
-          className={`font-bold bg-gray-100 dark:bg-gray-800 border-gray-100 w-full h-12 rounded-2xl pl-5 md:h-16 md:text-heading-s focus-visible:outline-purple ${
+          className={`font-bold bg-gray-100 transition duration-500 ease-in-out dark:bg-gray-800 border-gray-100 transition- w-full h-12 rounded-2xl pl-5 md:h-16 md:text-heading-s focus-visible:outline-purple ${
             error && "outline-1 outline-red!"
           } ${
             theme === "light"
