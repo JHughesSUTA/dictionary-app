@@ -29,3 +29,9 @@ export type DictionaryResult = {
 };
 
 export type Font = "sans" | "serif" | "mono";
+
+export type FontOption = {
+  value: Font;
+  label: string;
+  className: string;
+};
